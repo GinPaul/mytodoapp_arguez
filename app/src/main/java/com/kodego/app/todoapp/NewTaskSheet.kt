@@ -14,16 +14,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.kodego.app.todoapp.databinding.FragmentNewTaskSheetBinding
 import java.time.LocalTime
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [NewTaskSheet.newInstance] factory method to
- * create an instance of this fragment.
- */
 class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentNewTaskSheetBinding
@@ -40,8 +30,8 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment() {
         if(taskItem != null) {
             binding.taskTitle.text = "Edit Task"
             val editable = Editable.Factory.getInstance()
-            binding.name.text = editable.newEditable(taskItem!!.name)
-            binding.desc.text = editable.newEditable(taskItem!!.desc)
+            binding.name2.text = editable.newEditable(taskItem!!.name)
+            binding.desc2.text = editable.newEditable(taskItem!!.desc)
             if(taskItem!!.dueTime != null){
                 dueTime = taskItem!!.dueTime!!
                 updateTimeButtonText()
@@ -90,29 +80,10 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment() {
         return binding.root
     }
 
-//    companion object {
-//        /**
-//         * Use this factory method to create a new instance of
-//         * this fragment using the provided parameters.
-//         *
-//         * @param param1 Parameter 1.
-//         * @param param2 Parameter 2.
-//         * @return A new instance of fragment NewTaskSheet.
-//         */
-//        // TODO: Rename and change types and number of parameters
-//        @JvmStatic
-//        fun newInstance(param1: String, param2: String) =
-//            NewTaskSheet().apply {
-//                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
-//                }
-//            }
-
         private fun saveAction(){
 
-            val name = binding.name.text.toString()
-            val desc = binding.desc.text.toString()
+            val name = binding.name2.text.toString()
+            val desc = binding.desc2.text.toString()
 
             if(taskItem == null) {
                 val newTask = TaskItem(name, desc, null, null)
@@ -120,8 +91,8 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment() {
             }else{
                 taskViewModel.updateTaskItem(taskItem!!.id, name, desc, null)
 
-            binding.name.setText("")
-            binding.desc.setText("")
+            binding.name2.setText("")
+            binding.desc2.setText("")
             dismiss()
         }
     }

@@ -22,10 +22,12 @@ class TaskItemViewHolder(
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun bindTaskItem(taskItem: TaskItem){
-        binding.name.text = taskItem.name
+        binding.name2.text = taskItem.name
+        binding.desc2.text = taskItem.desc
+        binding.dueTime.text = taskItem.dueTime.toString()
 
         if(taskItem.isCompleted()){
-            binding.name.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            binding.name2.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             binding.dueTime.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
         }
 
