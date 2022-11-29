@@ -9,7 +9,7 @@ import com.kodego.app.todoapp.databinding.TaskItemCellBinding
 
 class TaskItemAdapter(
 
-    private val taskItems: MutableList<TaskItem>,
+    private val taskItems: List<TaskItem>,
     private val clickListener: TaskItemClickListener
 
 ): RecyclerView.Adapter<TaskItemViewHolder>() {

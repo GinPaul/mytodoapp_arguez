@@ -3,22 +3,20 @@ package com.kodego.app.todoapp
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kodego.app.todoapp.databinding.ActivityMainBinding
-import com.kodego.app.todoapp.db.ToDo
-import com.kodego.app.todoapp.db.ToDoDatabase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import com.kodego.app.todoapp.db.TodoApplication
 
 class MainActivity : AppCompatActivity(), TaskItemClickListener {
 
-    lateinit var binding: ActivityMainBinding
-    private lateinit var taskViewModel: TaskViewModel
-    lateinit var toDoDB : ToDoDatabase
+    private lateinit var binding: ActivityMainBinding
+    private val taskViewModel: TaskViewModel by viewModels {
+        TaskItemModelFactory((application as TodoApplication).repository)
+    }
+
     lateinit var adapter : TaskItemAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,17 +25,11 @@ class MainActivity : AppCompatActivity(), TaskItemClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
         binding.newTaskButton.setOnClickListener{
             NewTaskSheet(null).show(supportFragmentManager, "newTaskTag")
         }
-
         setRecyclerView()
 
-        toDoDB = ToDoDatabase.invoke(this)
-
-//        //display table data on screen
-//        view()
 
     }
 
@@ -61,29 +53,4 @@ class MainActivity : AppCompatActivity(), TaskItemClickListener {
     override fun completeTaskItem(taskItem: TaskItem) {
         taskViewModel.setCompleted(taskItem)
     }
-
-//    private fun view() {
-//        lateinit var toDoList: MutableList<ToDo>
-//        GlobalScope.launch(Dispatchers.IO) {
-//            toDoList = toDoDB.getToDo().getAllToDo()
-//
-//            withContext(Dispatchers.Main){
-//                adapter = TaskItemAdapter(toDoList)
-//                binding.todoListRecyclerView.adapter = adapter
-//                binding.todoListRecyclerView.layoutManager = LinearLayoutManager(applicationContext)
-//
-//                adapter.onItemDelete = { item:ToDo, position: Int ->
-//
-//                    delete(item)
-//                    adapter..removeAt(position)
-//                    adapter.notifyDataSetChanged()
-//                }
-//                adapter.onUpdate =  { item:Employee, position: Int ->
-//
-//                    showUpdateDialog(item.id)
-//                    adapter.notifyDataSetChanged()
-//                }
-//
-//            }
-//        }
 }
