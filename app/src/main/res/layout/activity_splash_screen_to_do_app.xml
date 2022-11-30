@@ -26,6 +26,7 @@
         android:layout_marginTop="401dp"
         android:fontFamily="sans-serif"
         android:text="Organize Your Day"
+        android:textColor="@color/purple_700"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
