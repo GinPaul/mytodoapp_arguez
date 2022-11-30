@@ -66,15 +66,10 @@ class MainActivity : AppCompatActivity(), TaskItemClickListener
         taskViewModel.setCompleted(taskItem)
     }
 
-//    //for date and time today
-//    fun addCalendarEvent(view: View) {
-//        val calendarEvent: Calendar = Calendar.getInstance()
-//        val intent = Intent(Intent.ACTION_EDIT)
-//        intent.type = "vnd.android.cursor.item/event"
-//        intent.putExtra("beginTime", calendarEvent.timeInMillis)
-//        intent.putExtra("allDay", true)
-//        intent.putExtra("rule", "FREQ=YEARLY")
-//        intent.putExtra("endTime", calendarEvent.timeInMillis + 60 * 60 * 1000)
-//        intent.putExtra("title", "Calendar Event")
-//        startActivity(intent)
+    override fun deleteTaskItem(taskItem: TaskItem)
+    {
+        taskViewModel.deleteTaskItem(taskItem)
+    }
+
+
 }

@@ -21,6 +21,7 @@ class TaskItemViewHolder(
 
         if (taskItem.isCompleted()){
             binding.name.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            binding.desc.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             binding.dueTime.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
         }
 
@@ -32,6 +33,10 @@ class TaskItemViewHolder(
         }
         binding.taskCellContainer.setOnClickListener{
             clickListener.editTaskItem(taskItem)
+        }
+        //to delete
+        binding.btnDelete.setOnClickListener{
+            clickListener.deleteTaskItem(taskItem)
         }
 
         if(taskItem.dueTime() != null)
