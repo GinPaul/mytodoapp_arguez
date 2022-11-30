@@ -71,7 +71,6 @@
                 android:text="Time"
                 android:textColor="@color/purple_700"
                 android:textSize="18sp"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView2"
@@ -110,7 +109,6 @@
                 android:text="Time due:"
                 android:textColor="@color/purple_700"
                 android:textSize="18sp"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
