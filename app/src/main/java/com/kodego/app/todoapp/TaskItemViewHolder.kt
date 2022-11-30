@@ -2,33 +2,24 @@ package com.kodego.app.todoapp
 
 import android.content.Context
 import android.graphics.Paint
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
 import com.kodego.app.todoapp.databinding.TaskItemCellBinding
 import java.time.format.DateTimeFormatter
 
 class TaskItemViewHolder(
-
     private val context: Context,
     private val binding: TaskItemCellBinding,
     private val clickListener: TaskItemClickListener
-
-): RecyclerView.ViewHolder(binding.root){
-
-    @RequiresApi(Build.VERSION_CODES.O)
+): RecyclerView.ViewHolder(binding.root)
+{
     private val timeFormat = DateTimeFormatter.ofPattern("HH:mm")
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun bindTaskItem(taskItem: TaskItem){
+    fun bindTaskItem(taskItem: TaskItem)
+    {
         binding.name.text = taskItem.name
-        binding.desc.text = taskItem.name
-        binding.dueTime.text = taskItem.name
 
-        if(taskItem.isCompleted()){
+        if (taskItem.isCompleted()){
             binding.name.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-            binding.desc.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             binding.dueTime.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
         }
 
@@ -47,5 +38,4 @@ class TaskItemViewHolder(
         else
             binding.dueTime.text = ""
     }
-
 }

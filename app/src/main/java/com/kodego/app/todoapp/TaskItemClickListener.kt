@@ -1,8 +1,7 @@
 package com.kodego.app.todoapp
 
-interface TaskItemClickListener {
-
+interface TaskItemClickListener
+{
     fun editTaskItem(taskItem: TaskItem)
     fun completeTaskItem(taskItem: TaskItem)
-
 }

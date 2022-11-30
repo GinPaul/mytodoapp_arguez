@@ -1,40 +1,35 @@
 package com.kodego.app.todoapp
 
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kodego.app.todoapp.databinding.ActivityMainBinding
 import com.kodego.app.todoapp.db.TodoApplication
 
-class MainActivity : AppCompatActivity(), TaskItemClickListener {
-
+class MainActivity : AppCompatActivity(), TaskItemClickListener
+{
     private lateinit var binding: ActivityMainBinding
+    //private lateinit var taskViewModel: TaskViewModel
     private val taskViewModel: TaskViewModel by viewModels {
         TaskItemModelFactory((application as TodoApplication).repository)
     }
 
-    lateinit var adapter : TaskItemAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        //taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
 
-        binding.newTaskButton.setOnClickListener{
+        binding.newTaskButton.setOnClickListener {
             NewTaskSheet(null).show(supportFragmentManager, "newTaskTag")
         }
         setRecyclerView()
-
-
     }
 
-    private fun setRecyclerView() {
-
+    private fun setRecyclerView()
+    {
         val mainActivity = this
         taskViewModel.taskItems.observe(this){
             binding.todoListRecyclerView.apply {
@@ -42,15 +37,15 @@ class MainActivity : AppCompatActivity(), TaskItemClickListener {
                 adapter = TaskItemAdapter(it, mainActivity)
             }
         }
-
     }
 
-    override fun editTaskItem(taskItem: TaskItem) {
-        NewTaskSheet(taskItem).show(supportFragmentManager, "newTaskTag")
+    override fun editTaskItem(taskItem: TaskItem)
+    {
+        NewTaskSheet(taskItem).show(supportFragmentManager,"newTaskTag")
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    override fun completeTaskItem(taskItem: TaskItem) {
+    override fun completeTaskItem(taskItem: TaskItem)
+    {
         taskViewModel.setCompleted(taskItem)
     }
 }

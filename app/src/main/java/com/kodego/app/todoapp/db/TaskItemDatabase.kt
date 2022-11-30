@@ -7,16 +7,19 @@ import androidx.room.RoomDatabase
 import com.kodego.app.todoapp.TaskItem
 
 @Database(entities = [TaskItem::class], version = 1, exportSchema = false)
-abstract class TaskItemDatabase: RoomDatabase() {
-
+public abstract class TaskItemDatabase : RoomDatabase()
+{
     abstract fun taskItemDao(): TaskItemDao
 
-    companion object{
+    companion object
+    {
         @Volatile
         private var INSTANCE: TaskItemDatabase? = null
 
-        fun getDatabase(context: Context): TaskItemDatabase{
-            return INSTANCE ?: synchronized(this){
+        fun getDatabase(context: Context): TaskItemDatabase
+        {
+            return INSTANCE ?: synchronized(this)
+            {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     TaskItemDatabase::class.java,
