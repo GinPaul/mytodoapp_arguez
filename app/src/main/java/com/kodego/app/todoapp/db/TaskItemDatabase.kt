@@ -31,3 +31,5 @@ public abstract class TaskItemDatabase : RoomDatabase()
         }
     }
 }
+/**Contains the database holder and serves as the main access point for the underlying
+ * connection to your app’s persisted, relational data.*/

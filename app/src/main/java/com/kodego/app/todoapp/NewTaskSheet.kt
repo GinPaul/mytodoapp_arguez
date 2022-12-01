@@ -6,13 +6,15 @@ import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.kodego.app.todoapp.databinding.FragmentNewTaskSheetBinding
 import java.time.LocalTime
 
 
-class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment()
+class NewTaskSheet(var taskItem: TaskItem?) : DialogFragment()
 {
     private lateinit var binding: FragmentNewTaskSheetBinding
     private lateinit var taskViewModel: TaskViewModel
@@ -36,7 +38,7 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment()
         }
         else
         {
-            binding.taskTitle.text = "New Task"
+            binding.taskTitle.text = "Input New Task"
         }
 
         taskViewModel = ViewModelProvider(activity).get(TaskViewModel::class.java)

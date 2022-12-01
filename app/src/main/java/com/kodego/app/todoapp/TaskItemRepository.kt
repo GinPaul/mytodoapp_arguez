@@ -28,3 +28,6 @@ class TaskItemRepository(private val taskItemDao: TaskItemDao)
     }
 
 }
+/**A repository is commonly regarded as the single source of truth in an Android application.
+ * In other words, it acts as an abstraction over a particular data source.
+ * A repository enables an application to consume data without worrying about its origin.*/

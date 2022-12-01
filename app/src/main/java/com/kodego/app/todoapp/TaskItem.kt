@@ -34,3 +34,7 @@ class TaskItem(
         val dateFormatter: DateTimeFormatter = DateTimeFormatter.ISO_DATE
     }
 }
+/**This (@Entity) represents a table within the database.
+ * Room creates a table for each class that has @Entity annotation,
+ * the fields in the class correspond to columns in the table.
+ * Therefore, the entity classes tend to be small model classes that don’t contain any logic.*/

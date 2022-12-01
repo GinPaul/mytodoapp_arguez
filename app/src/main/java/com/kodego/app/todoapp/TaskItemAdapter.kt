@@ -22,3 +22,6 @@ class TaskItemAdapter(
 
     override fun getItemCount(): Int = taskItems.size
 }
+
+/**Adapters provide a binding from an app-specific data set to views that are
+ * displayed within a RecyclerView.*/
