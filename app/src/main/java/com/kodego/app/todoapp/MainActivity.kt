@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kodego.app.todoapp.databinding.ActivityMainBinding
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity(), TaskItemClickListener
 
         binding.newTaskButton.setOnClickListener {
             NewTaskSheet(null).show(supportFragmentManager, "newTaskTag")
+            Toast.makeText(applicationContext,"Creating a new task.", Toast.LENGTH_SHORT).show()
         }
         setRecyclerView()
 
@@ -59,16 +61,19 @@ class MainActivity : AppCompatActivity(), TaskItemClickListener
     override fun editTaskItem(taskItem: TaskItem)
     {
         NewTaskSheet(taskItem).show(supportFragmentManager,"newTaskTag")
+        Toast.makeText(applicationContext,"Edit this task.", Toast.LENGTH_SHORT).show()
     }
 
     override fun completeTaskItem(taskItem: TaskItem)
     {
         taskViewModel.setCompleted(taskItem)
+        Toast.makeText(applicationContext,"Task marked as completed.", Toast.LENGTH_SHORT).show()
     }
 
     override fun deleteTaskItem(taskItem: TaskItem)
     {
         taskViewModel.deleteTaskItem(taskItem)
+        Toast.makeText(applicationContext,"Task is deleted!", Toast.LENGTH_SHORT).show()
     }
 
 

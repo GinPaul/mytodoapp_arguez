@@ -6,6 +6,7 @@ import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
@@ -44,6 +45,7 @@ class NewTaskSheet(var taskItem: TaskItem?) : DialogFragment()
         taskViewModel = ViewModelProvider(activity).get(TaskViewModel::class.java)
         binding.saveButton.setOnClickListener {
             saveAction()
+
         }
         binding.timePickerButton.setOnClickListener {
             openTimePicker()

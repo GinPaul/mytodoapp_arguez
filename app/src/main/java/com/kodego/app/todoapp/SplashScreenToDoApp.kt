@@ -17,6 +17,7 @@ class SplashScreenToDoApp : AppCompatActivity() {
             delay(3500L)
             startActivity(Intent(this@SplashScreenToDoApp, MainActivity::class.java))
             finish()
+
         }
 
     }

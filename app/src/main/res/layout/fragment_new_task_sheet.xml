@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipToPadding="false"
+    android:fadingEdge="horizontal"
     android:orientation="vertical"
     tools:context=".NewTaskSheet">
 
@@ -16,7 +17,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
-        android:text="Input New Task"
+        android:text="@string/input_new_task"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -31,7 +32,7 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Task Name" />
+            android:hint="@string/task_name" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,6 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="15dp"
         android:text="@string/select_time" />
 
     <com.google.android.material.button.MaterialButton
@@ -73,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="bottom|center_horizontal"
-        android:text="ToDo App Version 2.1.0"
+        android:text="@string/todo_app_version_2_1_0_by_lparguez"
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp" />
