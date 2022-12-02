@@ -80,13 +80,14 @@
 
         <ImageView
             android:id="@+id/alarmNotification"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="5dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@+id/todoListRecyclerView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_launcher_alarm" />
+            app:srcCompat="@drawable/ic_baseline_add_alarm_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
