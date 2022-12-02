@@ -12,4 +12,7 @@
     <string name="task_name">Task Name</string>
     <string name="input_new_task">Input New Task</string>
     <string name="todo_app_version_2_1_0_by_lparguez">ToDo App Version 2.1.0 by LPArguez</string>
+    <string name="title">title</string>
+    <string name="message">message</string>
+    <string name="schedule_notification">schedule_notification</string>
 </resources>

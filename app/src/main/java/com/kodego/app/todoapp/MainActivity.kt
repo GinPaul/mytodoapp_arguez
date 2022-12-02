@@ -3,7 +3,6 @@ package com.kodego.app.todoapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -45,6 +44,16 @@ class MainActivity : AppCompatActivity(), TaskItemClickListener
         simpleDateFormat = SimpleDateFormat("EEE | MMM dd, yyyy")
         date = simpleDateFormat.format(calendar.time)
         textView.text = date
+
+        //to open notification layout
+        binding.alarmNotification.setOnClickListener() {
+            Toast.makeText(applicationContext, "Create your reminder.", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, TaskNotification::class.java)
+            startActivity(intent)
+        }
+
+
     }
 
     private fun setRecyclerView()

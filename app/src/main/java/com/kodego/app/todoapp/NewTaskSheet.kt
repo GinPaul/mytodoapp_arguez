@@ -50,6 +50,7 @@ class NewTaskSheet(var taskItem: TaskItem?) : DialogFragment()
         binding.timePickerButton.setOnClickListener {
             openTimePicker()
         }
+
     }
 
     private fun openTimePicker() {
