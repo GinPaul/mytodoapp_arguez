@@ -8,11 +8,22 @@
     tools:context=".MainActivity">
 
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="Set your reminder"
+        android:textColor="@color/design_default_color_primary_dark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:paddingHorizontal="20dp">
 
         <com.google.android.material.textfield.TextInputEditText

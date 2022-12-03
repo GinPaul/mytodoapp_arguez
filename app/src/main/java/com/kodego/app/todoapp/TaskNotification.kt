@@ -7,10 +7,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.kodego.app.todoapp.BuildConfig.VERSION_CODE
 import com.kodego.app.todoapp.databinding.ActivityTaskNotificationBinding
-import pl.droidsonroids.gif.BuildConfig.VERSION_CODE
-import pl.droidsonroids.relinker.BuildConfig.VERSION_CODE
 import java.util.*
 
 class TaskNotification : AppCompatActivity() {
