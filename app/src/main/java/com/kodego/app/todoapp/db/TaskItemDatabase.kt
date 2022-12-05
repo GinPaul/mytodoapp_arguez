@@ -6,11 +6,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.kodego.app.todoapp.TaskItem
 
+//create the database with @Database, the entity/entities, and the DAO
+
 @Database(entities = [TaskItem::class], version = 1, exportSchema = false)
-public abstract class TaskItemDatabase : RoomDatabase()
+abstract class TaskItemDatabase : RoomDatabase()
 {
     abstract fun taskItemDao(): TaskItemDao
 
+
+    //create an instance
     companion object
     {
         @Volatile
