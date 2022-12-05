@@ -14,6 +14,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.kodego.app.todoapp.databinding.FragmentNewTaskSheetBinding
 import java.time.LocalTime
 
+//for the new tasks in dialog
 
 class NewTaskSheet(var taskItem: TaskItem?) : DialogFragment()
 {
@@ -25,12 +26,14 @@ class NewTaskSheet(var taskItem: TaskItem?) : DialogFragment()
         super.onViewCreated(view, savedInstanceState)
         val activity = requireActivity()
 
-        if (taskItem != null)
+        if (taskItem != null) //to edit if not null showing Edit Task title
         {
             binding.taskTitle.text = "Edit Task"
+
             val editable = Editable.Factory.getInstance()
             binding.name.text = editable.newEditable(taskItem!!.name)
             binding.desc.text = editable.newEditable(taskItem!!.desc)
+
             if(taskItem!!.dueTime() != null)
             {
                 dueTime = taskItem!!.dueTime()!!
@@ -56,10 +59,12 @@ class NewTaskSheet(var taskItem: TaskItem?) : DialogFragment()
     private fun openTimePicker() {
         if(dueTime == null)
             dueTime = LocalTime.now()
+
         val listener = TimePickerDialog.OnTimeSetListener{ _, selectedHour, selectedMinute ->
             dueTime = LocalTime.of(selectedHour, selectedMinute)
             updateTimeButtonText()
         }
+
         val dialog = TimePickerDialog(activity, listener, dueTime!!.hour, dueTime!!.minute, true)
         dialog.setTitle("Task Due")
         dialog.show()
@@ -74,7 +79,6 @@ class NewTaskSheet(var taskItem: TaskItem?) : DialogFragment()
         binding = FragmentNewTaskSheetBinding.inflate(inflater,container,false)
         return binding.root
     }
-
 
     private fun saveAction()
     {
