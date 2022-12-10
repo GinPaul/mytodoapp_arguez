@@ -14,13 +14,13 @@ import java.util.*
 
 class MainActivity : AppCompatActivity(), TaskItemClickListener
 {
+    //for the current date and time
     lateinit var simpleDateFormat: SimpleDateFormat
     lateinit var date: String
     lateinit var textView: TextView
     lateinit var calendar: Calendar
 
     private lateinit var binding: ActivityMainBinding
-    //private lateinit var taskViewModel: TaskViewModel
     private val taskViewModel: TaskViewModel by viewModels {
         TaskItemModelFactory((application as TodoApplication).repository)
     }

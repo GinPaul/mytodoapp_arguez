@@ -24,6 +24,8 @@ class TaskNotification : AppCompatActivity() {
         //to create a notification channel
         createNotificationChannel()
         binding.submitButton.setOnClickListener { scheduleNotification() }
+
+
     }
 
     private fun scheduleNotification()

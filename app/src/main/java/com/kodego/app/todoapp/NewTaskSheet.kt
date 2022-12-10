@@ -15,7 +15,6 @@ import com.kodego.app.todoapp.databinding.FragmentNewTaskSheetBinding
 import java.time.LocalTime
 
 //for the new tasks in dialog
-
 class NewTaskSheet(var taskItem: TaskItem?) : DialogFragment()
 {
     private lateinit var binding: FragmentNewTaskSheetBinding
